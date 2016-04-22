@@ -5,15 +5,69 @@
 #### 无模型
 
 #### controller
-  1. insertData 新增表数据 返回类型 java.util.Map
-  2. createDb 创建数据库 返回类型 java.util.Map
-  3. getDataInfo 显示所有数据库信息 返回类型 java.util.List
-  4. getTablesInfo 查询单个表的信息 返回类型 java.util.List
-  5. createDbTab 创建表 返回类型 java.util.Map
-  6. deleteData 删除表数据 返回类型 java.util.Map
-  7. updateData 修改表数据 返回类型 java.util.Map
-  8. getTableData 获取表数据信息 返回类型 java.util.List
-  9. getTableInfo 显示所有表信息 返回类型 java.util.List
+<table>
+  <tr>
+    <th>序号</th>
+    <th>方法名称</th>
+    <th>方法描述</th>
+    <th>返回值类型</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>insertData</td>
+    <td>新增表数据</td>
+    <td>Map</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>createDb</td>
+    <td>创建数据库</td>
+    <td>Map</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>getDataInfo</td>
+    <td>显示所有数据库信息</td>
+    <td>List</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>getTablesInfo</td>
+    <td>查询单个表的信息</td>
+    <td>List</td>
+  </tr>  
+  <tr>
+    <td>5</td>
+    <td>createDbTab</td>
+    <td>创建表</td>
+    <td>Map</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>deleteData</td>
+    <td>删除表数据</td>
+    <td>Map</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>updateData</td>
+    <td>修改表数据</td>
+    <td>Map</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>getTableData</td>
+    <td>获取表数据信息</td>
+    <td>List</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>getTableInfo</td>
+    <td>显示所有表信息</td>
+    <td>List</td>
+  </tr>
+</table>
+
 
 ### 二、服务接口
 #### 接口详情
