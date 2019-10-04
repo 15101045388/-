@@ -32,3 +32,11 @@ var count = 20;
 var result = addTen(count);
 alert(count);  // -20
 alert(result); // -30
+
+
+function test(){
+  var a = 0;
+}
+console.log(this.a);
+
+
