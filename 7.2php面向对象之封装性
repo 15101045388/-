@@ -1,0 +1,73 @@
+封装性
+1、设置私有成员和访问
+2、__get()
+__set()
+__isset() // 设置值调用
+__unset() // 释放变量调用
+
+封装修饰符
+设置私有成员
+访问私有成员
+
+分装性是面向对象编程中的三大特性之一，把对象中的成员属性和成员方法加上访问修饰符。
+
+public  共有的默认的
+private 私有的
+protected 受保护的
+
+实例：
+class Person{
+  private $name;
+  public $age;
+  public function say(){
+    return $this -> age;
+  }
+}
+
+<?php 
+
+/**
+* 定义一个类，学习public private protected
+*/
+class Person
+{
+  public $name = "zhu"; // 共有的
+  private $age = "18"; // 私有的
+  protected $money = 10; // 受保护的
+  // 私有的成员方法  不能在类外部直接被访问
+  private function getAge(){
+     return $this->age;
+  }
+  // 被保护的成员方法  不能再类的外部被访问
+  protected function getMoney(){
+   return $this->money;
+  }
+  public function userCard(){
+    echo $this -> getAge() . $this -> getMoney();
+  }
+  
+  public function __set($key, $value){
+    // 魔术方法的set 只对private、protected变量有效
+    if($key == "name" && $value == "laowang"){
+      $this -> name = "xiaowang";
+    }
+  }
+  
+  
+  
+}
+
+$xiaowang = new Person();
+echo $xiaowang->age; // 没有权限访问
+echo $xiaowang->name; // 正常输出
+echo $xiaowang->money // 没有权限访问
+echo $xiaowang->getAge(); // 没有权限访问
+echo $xiaowang->userCard(); // 正常输出
+
+?>
+
+
+
+
+
+
