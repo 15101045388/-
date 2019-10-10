@@ -1,0 +1,40 @@
+构造方法
+构造方式实例
+
+【修饰符】function__construct([参数]){
+  程序体
+}
+
+析构方法
+析构方法实例
+
+【修饰符】function__destruct([参数]){
+  程序体
+}
+
+<?php 
+
+class ClassName extends AnotherClass{
+  public function __construct($name,$age){
+    // 当这个类new的时候自动执行
+    echo("hello",$name);
+    echo "<hr/>";
+    $this -> name = $name;
+    $this -> age = $age;
+  }
+  public function data(){
+    return $this -> age;
+   }
+   public function __destruct(){
+    // 用途，可以进行资源释放操作  数据库关闭
+    // 对象被销毁的时候执行  没有代码再去运行了，采取执行
+    echo "最后{$this -> name}";
+    echo "<br/>";
+   }
+   
+}
+
+new Person("wuyu1",30);
+new Person("wuyu2",30); 
+ 
+?>
