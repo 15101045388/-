@@ -1,0 +1,63 @@
+1、类继承的应用
+
+php只支持单继承，不允许多继承，一个子类只能有一个父类，不允许一个类直接继承多个类
+
+继承应用
+<?php 
+/**
+* 父类
+*/
+class Person
+{
+  public $name;
+  private $age; // 私有无法继承
+  protected $money; // 外部无法访问，可以继承
+  function __contruct($name,$age,$money){
+    $this->name = $name;
+    $this->age = $age;
+    $this->money = $money;
+  }
+  public function cardInfo(){
+    echo "name".$this->name
+  }
+}
+$s = new Person("xw",22,100);
+
+clas Yellow extends Person{
+    function __contruct($name,$age,$money){
+      parent::__construct($name,$age,$money);
+    }
+    // php重写
+    public function cardInfo($pp){
+      // php实现重载的办法
+      parent::cardInfo();
+      echo $pp;
+    }
+}
+
+$s = new Yellow("xw",22,100);
+echo ($s->age) // 无法被继承
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
