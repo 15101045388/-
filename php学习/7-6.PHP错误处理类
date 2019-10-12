@@ -1,0 +1,36 @@
+1、系统自带异常处理
+
+class Exception{
+  // $message //异常信息
+}
+
+2、自定义异常处理
+3、捕捉多个异常处理
+<?php
+// try分支进行代码测试 没问题继续往下执行
+try{
+  
+}
+
+catch(e){
+  echo $e->getMessage();
+}
+
+class myException extends Exception{
+  
+}
+
+try{
+  
+}
+// 自定义异常处理类名
+catch(myException e){
+  
+}
+catch(Exception e){
+  
+}
+// 多个异常处理类 捕获多个异常
+
+new 的时候 接触到的一定是个类
+?>
