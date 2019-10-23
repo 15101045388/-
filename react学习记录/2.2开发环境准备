@@ -1,0 +1,19 @@
+开发环境引入方式：
+1、引入.js文件来使用React
+2、通过脚手架工具来编码
+
+写出来的代码需要编译让浏览器读 编译js
+
+编译工具： grunt webpack
+
+官方脚手架：Create-react-app
+定制性强（推荐）
+
+window电脑 _ 以下操作
+npm -v
+node -v
+npm install -g create-react-app
+create-react-app todolist
+
+cd todolist
+npm install

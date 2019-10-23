@@ -1,0 +1,28 @@
+1、
+clone
+$q1 = clone $q2;
+操作$q1 不会影响 $q2
+同样
+操作$q2 也不会影响 $q1
+
+2、 序列化
+网络传输过程
+数据库储存数据时
+粗浅理解  把一大把数据 变成字符串
+
+3、
+php的构造函数，直接挂载在class上
+js中 构造函数挂载在原型链上
+
+4、
+
+var Cruze = function(color){
+    Car.call(this, color);
+}
+
+var _prototype = Object.create(Car.prototype);
+_prototype.constructor = Cruze;
+Cruze.prototype = _prototype;
+
+
+
