@@ -1,0 +1,74 @@
+生命周期函数
+
+指在某一个时刻组件会自动调用执行的函数
+
+
+
+render函数 是 props和state发生改变的时候 去执行
+render函数是数据发生变化时 自动调用执行
+
+render也是生命周期函数
+
+流程
+
+初始化
+
+mounting 组件第一次挂载时
+
+    componentWillMount  在组建即将挂载到页面的时候执行，，还没有挂载到页面的时候
+    render  加载数据，挂载页面
+    componentDidMount 在组建挂载在页面之后的时候执行
+
+    componentWillMount(){
+        console.log('componentWillMount');
+    }
+
+    render(){
+        console.log('render');
+    }
+
+    componentDidMount(){
+        console.log('componentDidMount');
+    }
+
+updation  组件更新时
+
+    componentWillReceiveProps
+    shouldComponentUpdate   组件在更新之前会自动的执行
+    ComponentWillUpdate     组件被更新之前会更新，是在shouldComponentUpdate之后执行，如果shouldComponentUpdate返回true才会执行
+    render      更新组件数据
+    ComponentDidUpdate      组件更新完成之后会执行
+
+    // 默认返回一个bool类型的值
+    // 组件需要更新吗？默认是true
+    shouldComponentUpdate(){
+        console.log('shouldComponentUpdate');
+        return true;
+    }
+
+    ComponentWillUpdate(){
+        console.log('ComponentWillUpdate');
+    }
+
+    render(){
+        console.log('ComponentWillUpdate');
+    }
+
+    ComponentDidUpdate(){
+        console.log('ComponentDidUpdate');
+    }
+
+    1、当一个组件从父组件接受参数
+    2、如果这个组件第一次存在于父组件中，不会执行
+       如果之前已经存在，才会执行
+    componentWillReceiveProps(){
+         console.log('componentWillReceiveProps');
+    }
+
+
+unmount 组件卸载时
+    当这个组件即将从页面中剔除的时候，才执行
+    componentWillUnmount(){
+         console.log('componentWillUnmount');
+    }
+
