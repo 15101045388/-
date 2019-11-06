@@ -1,0 +1,24 @@
+
+
+如果数据发生了变化在执行
+
+shouldComponentUpdate(nextProps, nextState){
+    if(nextProps.content !== this.props.content){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+nextProps  接下来 props 会变成什么样
+nextState  接下来 state 会变成什么样
+
+axios扩展工具发送ajax请求
+
+then(()=>{
+    // 请求成功返回的结果
+})
+.catch(()=>{
+    // 请求失败返回的结果
+})
+
