@@ -1,0 +1,161 @@
+这里直接上 代码
+
+<!-- 内容填充，最高460px -->
+<div style="padding: 20px;max-height: 460px;">
+    <div id="left-div">
+        <div id="left-div1">
+            <table>
+                <tr>
+                    <th>
+                        <!-- 这里也可以做 斜线分割 -->
+                        test
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div id="left-div2">
+            <!-- 首列值 -->
+            <table id="table1_thead">
+
+            </table>
+        </div>
+    </div>
+    <div id="right-div">
+        <div id="right-div1">
+            <table>
+                <!-- 表头的值 -->
+                <tr id="right-table1"></tr>
+            </table>
+        </div>
+        <div id="right-div2">
+            <!-- 所有内容 -->
+            <table id="table1_tbody"></table>
+        </div>
+    </div>
+</div>
+
+
+样式在下面 直接上斜线样式
+
+/*模拟对角线*/
+
+.out {
+border-right: 1px #ebeef2 solid;
+/*上边框宽度等于表格第一行行高*/
+width: 0px;
+/*让容器宽度为0*/
+height: 0px;
+/*让容器高度为0*/
+border-left: 120px #ffffff solid;
+/*左边框宽度等于表格第一行第一格宽度*/
+position: relative;
+/*让里面的两个子容器绝对定位*/
+border-top: 40px #f2f2f2 solid;
+}
+
+.span1 {
+font-style: normal;
+display: block;
+position: absolute;
+top: -30px;
+left: -40px;
+width: 50px;
+}
+
+.span2 {
+font-style: normal;
+display: block;
+position: absolute;
+top: -20px;
+left: -90px;
+width: 55px;
+}
+
+
+下面是表格样式
+
+* {
+margin: 0;
+padding: 0;
+}
+
+table {
+width: 100%;
+text-align: center;
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+table td {
+word-break: break-all;
+word-wrap: break-word;
+}
+
+
+#left-div {
+width: 120px;
+float: left;
+margin-bottom: 20px;
+}
+
+#left-div1 {
+width: 100%;
+}
+
+#left-div2 {
+width: 100%;
+max-height: 390px;
+overflow: hidden;
+}
+
+#table1_thead {
+margin-bottom: 4px;
+}
+
+#right-div {
+float: left;
+width: calc(100% - 120px);
+}
+
+#right-div1 {
+width: 100%;
+overflow: hidden;
+}
+
+#right-div2 {
+width: 100%;
+max-height: 400px;
+overflow: auto;
+}
+
+#right-table1 {
+width: 320px;
+}
+
+#table1_tbody {
+min-width: 320px;
+overflow: auto;
+}
+
+#right-div2::-webkit-scrollbar {
+/*滚动条整体样式*/
+width: 6px;
+/*高宽分别对应横竖滚动条的尺寸*/
+height: 6px;
+}
+
+#right-div2::-webkit-scrollbar-thumb {
+/*滚动条里面小方块*/
+border-radius: 15px;
+/*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+background: #C1C1C1;
+/* opacity: 0; */
+/* display: none; */
+}
+
+#right-div2::-webkit-scrollbar-track {
+/*滚动条里面轨道*/
+/*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+border-radius: 10px;
+background: #fff;
+}
