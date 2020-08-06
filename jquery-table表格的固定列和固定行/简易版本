@@ -1,0 +1,186 @@
+
+    <div class="allTable">
+        <div class="leftTable">
+            <div class="leftDiv1">
+                <table class="table">
+                    <tr>
+                        <th>左侧第一列信息</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="leftDiv2">
+                <table class="table">
+                    <tr>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>133</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="rightTable">
+            <div class="rightDiv1">
+                <table class="table">
+                    <tr>
+                        <th>zhongguo1</th>
+                        <th>西班牙</th>
+                        <th>西班牙</th>
+                        <th>西班牙</th>
+                        <th>meiguo1</th>
+                        <th>meig2938uo1</th>
+                        <th>meig2938uo1</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="rightDiv2">
+                <table class="table">
+                    <tr>
+                        <td>71923</td>
+                        <td>71923</td>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>aslofjp</td>
+                        <td>aslofjp</td>
+                    </tr>
+                    <tr>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>aslofjp</td>
+                        <td>aslofjp</td>
+                    </tr>
+                    <tr>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>aslofjp</td>
+                    </tr>
+                    <tr>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                    </tr>
+                    <tr>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                    </tr>
+                    <tr>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                    </tr>
+                    <tr>
+                        <td>71923</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                        <td>92134</td>
+                        <td>92134</td>
+                        <td>aslofjp</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+
+            $(".rightDiv2").scroll(function () {
+
+                var left = $(this).scrollLeft();
+
+                var top = $(this).scrollTop();
+                $(".rightDiv1").scrollLeft(left);
+                $(".leftDiv2").scrollTop(top);
+
+
+
+            })
+        })
+    </script>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        table tr th,
+        table tr td {
+            min-width: 120px;
+        }
+
+
+
+
+
+        .allTable {
+            width: 400px;
+            margin: 0 auto;
+            height: 400px;
+        }
+
+
+
+        .leftTable {
+            float: left;
+            width: 20%;
+        }
+
+        .leftDiv1 {}
+
+        .leftDiv2 {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .rightTable {
+            float: right;
+            width: 80%;
+        }
+
+        .rightDiv1 {
+            overflow: hidden;
+        }
+
+        .rightDiv2 {
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
