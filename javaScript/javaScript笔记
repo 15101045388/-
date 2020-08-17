@@ -42,3 +42,30 @@ console.log(this.a);
 包装函数的声明：
 (functiong foo(){})()
 foo() 只能在当前作用域访问使用
+
+
+
+
+
+function takeLongTime(n){
+  // 返回promise对象，操作异步结果往下执行下一个请求
+  return new Promise(resovle => {
+    //执行定时任务
+    setTimeout(()=> resovle(n+200), n)
+  })
+}
+
+
+function step1(n){
+  console.log(`step1 ${n}`);
+  return takeLongTime(n)
+}
+function step2(n){
+  console.log(`step2 ${n}`);
+  return takeLongTime(n)
+}
+function step3(n){
+  console.log(`step3 ${n}`);
+  return takeLongTime(n)
+}
+

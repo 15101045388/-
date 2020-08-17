@@ -1,0 +1,228 @@
+Object.prototype.toString
+
+
+val == null ? '' : typeof val === 'object' ? JSON.stringify(val, null, 2) : String(val)
+
+
+vue 组件服用的策略模式
+
+方法提取
+并复用
+纯函数
+
+ 
+function context(type, ...rest) {
+    return StrategyMap[type] && StrategyMap[type](...rest)
+}
+
+StrategyMap(rest){
+    return ( rest / 100 ) * 30 && rest - Math( rest / 100 ) * 30
+}
+
+柯粒化
+将多个参数合并成一个参数处理的方法
+
+
+array  中.find()、.findIndex()、.some()  查找到第一个符合条件的数据 停止往后查询
+
+.every()  查询·所有数组元素，如果有一个不满足 返回false，剩下不检查，全部满足返回true
+
+find    找到返回当前值，未找到，返回undefined
+findIndex   找到返回当前值的索引下标，未找到，返回-1
+some    找到符合的数据返回true，未找到返回false
+
+集合和数组 的区别
+集合将始终独一无二
+数组值 可能有重复
+
+
+类数组对象
+类数组对象:
+
+只包含使用从零开始，且自然递增的整数做键名，并且定义了length表示元素个数的对象
+
+const object = {"1":"12312","21":"123123","length":"2"};
+console.log(object["length"]);
+
+
+Undefined 类型 
+一个没有被赋值的变量会有个默认值 undefined，
+let x;
+console.log(x)  // undefined
+
+null不等同于undefined
+
+=== 会严格判断双方的类型、值等是否相等
+
+javascript 对象 Object.defineProperty()
+使用时，赋值key或者属性名称 不存在显示false，存在获取值， 默认true
+
+javascript对象 里面并不是和java后台语言一致，由属性和方法组成，
+对象分为七大类型， 分别表示原型对象
+
+
+原型链的闭环
+
+定义某个对象
+function Person(name){
+    this.name = name;
+}
+
+console.log(Person.prototype.constructor === Person)   true
+
+console.log(new Person()._proto_ === Person.prototype)  true
+
+getPrototypeOf   给对象原型赋值
+call() 需要调用其他函数的方法时使用 多参数形式传参
+apply()  调用的参数为数组集合
+
+JavaScript Object Notation
+
+JSON  被标准定义为 xml语言格式
+
+// 原型链如下:
+// f ---> Function.prototype ---> Object.prototype ---> null
+es5
+使用Object.create 创建对象
+
+angular10是性能优化，变化检测原理，有依赖注入思想的工厂函数
+
+
+运算符 
+
+&& 遇到false后 直接返回 遇到true继续往后走
+
+|| 遇到true后  直接返回 遇到false继续往后走
+
+console.log(!false && true && ( !false || false && true) ? 6 : 9)
+
+
+简易版本双向绑定检测
+const data = {
+    name : ''
+}
+
+function say(name){
+    if(name == '小白'){
+        console.log('小白');
+    }else if(name == '大白'){
+        console.log('大白');
+    }
+}
+
+
+
+Object.keys(data).forEach(function(key){
+    Object.defineProperty(data, key,{
+        enumerable: true,
+        configurable :true,
+        get: function(){
+            console.log('重写get方法');
+        },
+        set: function(newValue){
+            console.log('setNewValue', newValue);
+            say(newValue);
+        }
+    })
+})
+
+data.name = '小白';
+data.name = '大白';
+
+
+
+Object.defineProperty 
+第一个问题，无法监听hack八大方法外的 数组的变化
+第二个问题，只能劫持对象的属性，如果对象的属性也是对象，那么就需要深度遍历
+
+proxy 可以直接监听对象而非 属性     运算符重载
+直接监听数组变化。。
+
+handle.has 中的 in 操作符 检察指定属性是否位于指定的对象或者原型链中
+
+const range = (min, max) => new Proxy(Object.create(null),{
+    has: (_, prop) => (+prop >= min && +prop <= max)
+})
+
+
+
+此处为判断  range 来判断数字
+初始化确定proxy的定义 并调用方法
+var proxy = new Proxy(obj, handler)
+
+Proxy.set(data, {
+    get: function(targer, key, rec){
+
+    }
+})
+
+
+
+异步回调地狱模式
+
+Ajax.get('./test/user').then((result)=>{
+    Ajax.get('./test/user' + result).then((result1)=>{
+          Ajax.get('./test/user' + result1).then((result2)=>{
+          ...
+        })
+    })
+})
+
+es8新语法 
+async await
+
+let time = async bb function (){
+    return new Promise((reslove, reject)=>{
+        // 条件判断
+        reslove();
+        // or
+        // reject();
+    })
+}
+
+time().then((result)=>{
+    console.log(result);
+}).then(()=>{
+    // 正确返回后信息
+}).catch(()=>{
+    // console.log('错误信息');
+})
+
+
+Object.entries()
+
+将一个对象中可枚举属性的键名和键值按照二维数组的方式返回。
+
+若对象是数组，则会将数组的下标作为键值返回。
+
+entries()、
+数组转换    
+values()、
+获取key对应value 
+keys()
+获取对象key
+
+padStart()和padEnd()
+
+字符串填充
+前面填充 和 后面填充  超过长度的填充位置 原值返回
+
+getOwnPropertyDescriptors
+返回属性自己定义的属性  不能是继承的
+
+@decorator 
+装饰器是在编译时就执行的函数
+
+@test
+class Person{}
+function test(){
+    console.log(1111);
+    target.num = 1;
+}
+console.log(Person['num']);
+
+修饰器不能作用于函数之上，这是因为函数和变量一样都会提升
+类 没有提升这个问题 作用域和全局变量提升等级
+
+
+

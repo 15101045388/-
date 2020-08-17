@@ -6,7 +6,12 @@ animation
 -ms-   /* IE 9 */
 -moz-   /*  火狐  */
  
- 
+
+@keyform 自定义name {
+
+频率帧的显示内容
+
+}
 
 transition
 动画 开始帧和结束帧的 打开方式

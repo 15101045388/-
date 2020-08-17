@@ -1,6 +1,6 @@
 1、state 数据
 2、JSX 模板
-3、数据 + 模板 生成虚拟DOM（xuniDOM就是一个JS对象，用它来描述真实DOM）
+3、数据 + 模板 生成虚拟DOM（虚拟DOM就是一个JS对象，用它来描述真实DOM）
 4、用虚拟DOM 结构生成真实的DOM 来显示
 5、state发生变化
 
