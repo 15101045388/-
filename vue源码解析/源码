@@ -226,3 +226,8 @@ console.log(Person['num']);
 
 
 
+v-html 转换纯文本
+
+
+    <!-- @update:choose="val => imgList = val" -->
+    this.$emit('updata:choose', value);

@@ -1,0 +1,7 @@
+参数获取
+
+this.$route.query  获取问号后面的参数
+
+this.$route.path 获取url路径
+
+this.$route.params  获取params 配置的参数
