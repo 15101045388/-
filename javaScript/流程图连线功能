@@ -1,0 +1,191 @@
+npm install jsPlumb --dev--save
+
+<template>
+  <div id="diagramContainer">
+    <div>
+      <div
+        v-for="item in leftContentList"
+        :key="item.index"
+        class="item_class"
+        :id="item.id"
+      >
+        {{ item.name }}
+      </div>
+    </div>
+    <div>
+      <div
+        v-for="item in rightContentList"
+        :key="item.index"
+        class="item_class"
+        :id="item.id"
+      >
+        {{ item.name }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { jsPlumb } from "jsplumb";
+export default {
+  components: {},
+
+  data() {
+    return {
+      leftContentList: [
+        { name: "left1", id: "item_left1" },
+        { name: "left2", id: "item_left2" },
+        { name: "left3", id: "item_left3" }
+      ],
+      rightContentList: [
+        { name: "right1", id: "item_right1" },
+        { name: "right2", id: "item_right2" },
+        { name: "right3", id: "item_right3" }
+      ]
+    };
+  },
+
+  created() {},
+  mounted() {
+    this.show();
+  },
+
+  methods: {
+    show() {
+      // 获取vue对象
+      // const _this = this;
+      jsPlumb.ready(function() {
+        // console.log(_this);
+        var common = {
+          isSource: true,
+          isTarget: true,
+          connector: ["Straight"],
+          endpoint: "Dot",
+
+          // 默认连接时的颜色
+          paintStyle: {
+            Label: "11",
+            fill: "blue",
+            outlineStroke: "red",
+            strokeWidth: 3
+          },
+          // 悬浮时，线的颜色
+          hoverPaintStyle: {
+            Label: "11",
+            fill: "white",
+            outlineStroke: "black",
+            strokeWidth: 4
+          },
+          // 手动连接线的颜色
+          connectorStyle: {
+            Label: "11",
+            fill: "green",
+            outlineStroke: "green",
+            strokeWidth: 1
+          },
+          connectorHoverStyle: {
+            outlineStroke: "#ce47e2",
+            strokeWidth: 2
+          }
+          // LabelStyle: { color: "black" }
+          // maxConnections: -1 //
+          // overlays: [
+          // ["Label", { label: "1111", id: "label-1", location: 50 }]
+          // ["Arrow", { width: 12, length: 12, location: 0.5 }]
+          // label: ['shanchu']
+          // ]
+        };
+
+        for (let i = 0; i < 3; i++) {
+          //   创建位于右侧居中的点位
+          jsPlumb.addEndpoint(
+            "item_left" + (i + 1),
+            {
+              anchors: "Right"
+            },
+            common
+          );
+
+          //   创建位于左侧居中的点位
+          jsPlumb.addEndpoint(
+            "item_right" + (i + 1),
+            {
+              anchors: ["Left"]
+            },
+            common
+          );
+
+          // 创建连线
+          jsPlumb.connect(
+            {
+              source: "item_left" + (i + 1),
+              target: "item_right" + (i + 1),
+              anchors: ["Right", "Left"]
+            },
+            common
+          );
+        }
+
+        //   建立连接时的方法
+        jsPlumb.bind("beforeDrop", function(info) {
+          // console.log(_this);
+          if (
+            info.sourceId.indexOf("item_right") ===
+            info.targetId.indexOf("item_right")
+          ) {
+            //   console.log('链接取消')
+            return false;
+          }
+          //   console.log('链接会自动建立')
+          return true;
+        });
+
+        jsPlumb.bind("click", function(conn, originalEvent) {
+          // debugger;
+          if (window.prompt("确定删除所点击的链接吗？ 输入1确定") === "1") {
+            jsPlumb.deleteConnection(conn);
+          }
+        });
+      });
+    }
+  }
+};
+</script>
+ 
+
+<style lang="scss" scoped>
+#diagramContainer {
+  padding: 20px;
+  width: 80%;
+  height: 200px;
+  border: 1px solid gray;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+#diagramContainer div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+#diagramContainer div:nth-child(1) div {
+  margin-bottom: 10px;
+}
+#diagramContainer div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+#diagramContainer div:nth-child(2) div {
+  margin-bottom: 10px;
+}
+
+#diagramContainer {
+  .item_class {
+    height: 80px;
+    width: 80px;
+    border: 1px solid blue;
+    text-align: center;
+  }
+}
+</style>

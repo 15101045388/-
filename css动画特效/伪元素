@@ -1,0 +1,14 @@
+:root选择器用匹配文档的根元素
+
+:before  dom元素加载前
+:after   dom元素加载后
+
+:content  加载后的内容
+
+选择当前元素下面的指定元素
+:nth-child(n):first  
+:nth-child(1):first  
+:nth-child(1):last
+
+:hover  :active :focus  :visited
+悬浮   点击      选中     访问之后

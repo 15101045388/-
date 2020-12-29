@@ -1,0 +1,8 @@
+position: sticky;
+
+定位元素 fixed 和 relative 之间
+
+设置某个元素A 的 为 position: sticky 
+A的父级元素 有部分在滚动时不可见时，A元素会使用fixed定位
+默认状态下 A元素的定位状态为 relaeive 定位 内部元素定粘性时，设置·相同的属性值
+使用时的注意点:父级元素 和上级以上元素尽量不要 设置重新排序影响下面的dom

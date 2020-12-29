@@ -1,0 +1,7 @@
+1、使用state，创建定义变量名称，存储标识。
+2、使用set方法，获取新值
+3、使用get方法，导出获取全局变量。
+4、mutations定义同步方法，获取所有值，和赋值操作。action的操作可以是异步的，需要同时获取Commit方法 提取赋值。
+在action中使用commit 赋值
+
+在mutations中使用commit参数提供的方法，进行下一步赋值

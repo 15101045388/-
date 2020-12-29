@@ -1,0 +1,5 @@
+
+@font-face {
+    font-family: FZLTZHK;  //自定义名称
+    src: url('../fonts/方正兰亭中黑_GBK.TTF')  // 应用字体文件 相对定位或者绝对定位都可以
+}
